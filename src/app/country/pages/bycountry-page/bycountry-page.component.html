@@ -1,0 +1,65 @@
+<ng-template #loading>
+  <div class="alert alert-info text-center">Espere por favor</div>
+</ng-template>
+
+<div *ngIf="countries; else loading">
+  <div class="row">
+    <div class="col-12">
+      <h2>
+        pais : <strong>{{ countries.name.common }}</strong>
+      </h2>
+      <hr />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-4">
+      <h3>Bandera</h3>
+      <img
+        [src]="countries.flags.svg"
+        [alt]="countries.name.common"
+        class="img-thumbnail"
+      />
+    </div>
+    <div class="col">
+      <h3>Informacion</h3>
+      <ul class="list-group">
+        <li class="list-group-item">
+          <strong>Poblacion: </strong>{{ countries.population | number }}
+        </li>
+        <li class="list-group-item">
+          <strong>codigo: </strong>{{ countries.cca3 }}
+        </li>
+        <li class="list-group-item">
+          <strong>Area: </strong>{{ countries.area }}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row mt-2">
+    <div class="col">
+      <h3>traduciones</h3>
+      <div class="flex flex-wrap">
+        <span class="bage bg-primary mx-1 my-1 rounded p-1">{{
+          countries.translations["ara"].common
+        }}</span>
+        <span class="bage bg-primary mx-1 my-1 rounded p-1">{{
+          countries.translations["bre"].common
+        }}</span>
+        <span class="bage bg-primary mx-1 my-1 rounded p-1">{{
+          countries.translations["ces"].common
+        }}</span>
+        <span class="bage bg-primary mx-1 my-1 rounded p-1">{{
+          countries.translations["deu"].common
+        }}</span>
+        <span class="bage bg-primary mx-1 my-1 rounded p-1">{{
+          countries.translations["pol"].common
+        }}</span>
+        <span class="bage bg-primary mx-1 my-1 rounded p-1">{{
+          countries.translations["spa"].common
+        }}</span>
+      </div>
+    </div>
+  </div>
+</div>

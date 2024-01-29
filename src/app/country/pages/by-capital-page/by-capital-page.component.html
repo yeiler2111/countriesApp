@@ -1,0 +1,22 @@
+<h2>Por capital</h2>
+<hr />
+
+<div class="row">
+  <div class="col">
+    <!-- searbox  -->
+    <shared-search-box
+      placeholder="Buscar por capital"
+      (myEvent)="searchByCapital($event)"
+      [initialValue] = 'initialValue'
+    ></shared-search-box>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <!-- tabla de resultados -->
+    <shared-loding-spinner *ngIf="isLoading"></shared-loding-spinner>
+    <hr />
+    <country-table [countrie]="countri"></country-table>
+  </div>
+</div>

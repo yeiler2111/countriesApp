@@ -1,0 +1,26 @@
+<h2>Por region</h2>
+<hr />
+
+<div class="row">
+  <div class="col text-center">
+    <!-- searbox  -->
+    <button
+      class="btn px-2"
+      *ngFor="let item of regions; index as i"
+      [ngClass]="{ 'btn-outline-primary': selectRegions === item }"
+      (click)="searchRegion(item)"
+    >
+      {{ item }}
+    </button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <!-- tabla de resultados -->
+    <shared-loding-spinner *ngIf="isLoading"></shared-loding-spinner>
+
+    <hr />
+    <country-table [countrie]="region"></country-table>
+  </div>
+</div>
